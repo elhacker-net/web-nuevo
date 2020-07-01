@@ -1,0 +1,9 @@
+@import 'settings';
+@import '~foundation-sites/scss/foundation';
+
+//todo: incluir solo lo que necesitamos
+@include foundation-everything;
+
+#app {
+	font-weight: bold;
+}
