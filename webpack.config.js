@@ -25,79 +25,79 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
  */
 
 module.exports = {
-	mode: 'development',
+    mode: 'development',
 
-	entry: {
-		index: ['react-hot-loader/patch','./src/index.jsx'],
-	},
+    entry: {
+        index: ['react-hot-loader/patch', './src/index.jsx'],
+    },
 
-	output: {
-		filename: '[name].[hash].js',
-		path: path.resolve(__dirname, 'dist')
-	},
+    output: {
+        filename: '[name].[hash].js',
+        path: path.resolve(__dirname, 'dist'),
+    },
 
-	plugins: [new webpack.ProgressPlugin(), new HtmlWebpackPlugin({
-		template: 'html/template.html'
-	})],
+    plugins: [new webpack.ProgressPlugin(), new HtmlWebpackPlugin({
+        template: 'html/template.html',
+    })],
 
-	module: {
-		rules: [
-			{
-				test: /.s[ac]ss$/i,
-				use: [
-					'style-loader',
-					'css-loader',
-					{
-						loader: 'sass-loader',
-						options: {
-							webpackImporter: false,
-							sassOptions: {
-								includePaths: [path.resolve(__dirname, 'node_modules/foundation-sites/scss')],
-							},
-						}
-					}
-				]
-			},
-			{
-				test: /.(js|jsx)$/,
-				include: [path.resolve(__dirname, 'src')],
-				loader: 'babel-loader',
+    module: {
+        rules: [
+            {
+                test: /.s[ac]ss$/i,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            webpackImporter: false,
+                            sassOptions: {
+                                includePaths: [path.resolve(__dirname, 'node_modules/foundation-sites/scss')],
+                            },
+                        },
+                    },
+                ],
+            },
+            {
+                test: /.(js|jsx)$/,
+                include: [path.resolve(__dirname, 'src')],
+                loader: 'babel-loader',
 
-				options: {
-					plugins: ['react-hot-loader/babel', 'syntax-dynamic-import'],
+                options: {
+                    plugins: ['react-hot-loader/babel', 'syntax-dynamic-import'],
 
-					presets: [
-						[
-							'@babel/preset-env',
-							{
-								modules: false
-							}
-						],
-						'@babel/preset-react'
-					]
-				}
-			}
-		]
-	},
+                    presets: [
+                        [
+                            '@babel/preset-env',
+                            {
+                                modules: false,
+                            },
+                        ],
+                        '@babel/preset-react',
+                    ],
+                },
+            },
+        ],
+    },
 
-	optimization: {
-		splitChunks: {
-			cacheGroups: {
-				vendors: {
-					priority: -10,
-					test: /[\\/]node_modules[\\/]/
-				}
-			},
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                vendors: {
+                    priority: -10,
+                    test: /[\\/]node_modules[\\/]/,
+                },
+            },
 
-			chunks: 'async',
-			minChunks: 1,
-			minSize: 30000,
-			name: true
-		}
-	},
+            chunks: 'async',
+            minChunks: 1,
+            minSize: 30000,
+            name: true,
+        },
+    },
 
-	devServer: {
-		hot: true,
-		open: true
-	}
+    devServer: {
+        hot: true,
+        open: true,
+    },
 };
