@@ -28,11 +28,11 @@ module.exports = {
 	mode: 'development',
 
 	entry: {
-		pageOne: './src/index.jsx',
+		index: ['react-hot-loader/patch','./src/index.jsx'],
 	},
 
 	output: {
-		filename: '[name].[chunkhash].js',
+		filename: '[name].[hash].js',
 		path: path.resolve(__dirname, 'dist')
 	},
 
@@ -64,7 +64,7 @@ module.exports = {
 				loader: 'babel-loader',
 
 				options: {
-					plugins: ['syntax-dynamic-import'],
+					plugins: ['react-hot-loader/babel', 'syntax-dynamic-import'],
 
 					presets: [
 						[
@@ -97,6 +97,7 @@ module.exports = {
 	},
 
 	devServer: {
+		hot: true,
 		open: true
 	}
 };
