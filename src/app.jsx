@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 
 class App extends Component {
-	render(){
-		return <div>Init</div>;
-	}
+    componentDidMount(){
+
+    }
+
+    render(){
+        return <div>Init</div>;
+    }
 }
 
-export { App };
+export default App;
