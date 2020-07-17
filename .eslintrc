@@ -1,18 +1,19 @@
 {
-	"env" : {
-		"browser": true
-	},
-	"rules": {
-		"import/extensions": ["error", "ignorePackages"],
-		"prefer-const": "off",
-		"indent": ["error", 4],
-		"space-before-blocks": "off"
-	},
-	"parserOptions": {
-		"ecmaVersion": 2019,
-		"sourceTyeps": "module",
-		"ecmaFeatures": {
-			"jsx": true
-		}
-	},
-	"extends" : ["airbnb"] }
+    "env" : {
+        "browser": true
+    },
+    "rules": {
+        "import/extensions": ["error", "ignorePackages"],
+        "prefer-const": "off",
+        "indent": ["error", 4],
+        "space-before-blocks": "off",
+    },
+    "parserOptions": {
+        "ecmaVersion": 2019,
+        "sourceTyeps": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "extends" : ["airbnb"]
+}
