@@ -7,6 +7,7 @@
         "prefer-const": "off",
         "indent": ["error", 4],
         "space-before-blocks": "off",
+        "react/jsx-indent": ["error", 4]
     },
     "parserOptions": {
         "ecmaVersion": 2019,
