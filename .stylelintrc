@@ -2,6 +2,10 @@
     "extends": "stylelint-config-sass-guidelines",
     "rules": {
         "indentation" : [4],
-        "selector-max-id": 1
+        "selector-max-id": 1,
+        "color-hex-case": "upper",
+        "selector-no-qualifying-type": null,
+        "max-nesting-depth": 5,
+        "selector-max-compound-selectors": 5
     }
 }

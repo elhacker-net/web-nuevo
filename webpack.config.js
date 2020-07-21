@@ -52,7 +52,10 @@ module.exports = {
                         options: {
                             webpackImporter: false,
                             sassOptions: {
-                                includePaths: [path.resolve(__dirname, 'node_modules/foundation-sites/scss')],
+                                includePaths: [
+                                    path.resolve(__dirname, 'node_modules/foundation-sites/scss'),
+                                    path.resolve(__dirname, './scss'),
+                                ],
                             },
                         },
                     },
