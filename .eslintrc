@@ -7,14 +7,16 @@
         "prefer-const": "off",
         "indent": ["error", 4],
         "space-before-blocks": "off",
-        "react/jsx-indent": ["error", 4]
+        "react/jsx-indent": ["error", 4],
+        "react/jsx-indent-props": ["error", 4],
+        "react/prop-types": "off",
     },
     "parserOptions": {
         "ecmaVersion": 2019,
         "sourceTyeps": "module",
         "ecmaFeatures": {
             "jsx": true
-        }
+        },
     },
     "extends" : ["airbnb"]
 }
