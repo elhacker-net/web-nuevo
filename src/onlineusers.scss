@@ -1,0 +1,40 @@
+@import 'settings';
+@import 'foundation';
+@import 'webconfig';
+
+.users-online {
+    @include xy-grid($direction: vertical);
+    @include flex-align($y: middle);
+
+    &__header {
+        font-family: Roboto;
+    }
+}
+
+.user-list {
+    &__user {
+        &_rank_colaborator {
+            color: $colaborator;
+
+            &:hover {
+                color: scale-color($colaborator, $lightness: -20%);
+            }
+        }
+
+        &_rank_member {
+            color: inherit;
+
+            &:hover {
+                color: scale-color(#000, $lightness: -20%);
+            }
+        }
+
+        &_rank_coadmin {
+            color: $coadmin;
+
+            &:hover {
+                color: scale-color($coadmin, $lightness: -20%);
+            }
+        }
+    }
+}

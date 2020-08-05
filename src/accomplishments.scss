@@ -1,0 +1,20 @@
+@import 'settings';
+@import 'foundation';
+
+.list-why {
+    @include xy-cell(100%, null, 0, none);
+    @include flex-order(1);
+    @include xy-grid;
+    @include breakpoint(700px) {
+        @include xy-cell(1 of 2);
+        @include flex-order(0);
+    }
+
+    &__listitem {
+        padding: rem-calc(10px) 0;
+    }
+
+    &__cell {
+        @include xy-cell;
+    }
+}

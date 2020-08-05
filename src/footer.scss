@@ -1,0 +1,50 @@
+@import 'settings';
+@import 'foundation';
+@import 'webconfig';
+
+.footer {
+    background: $bg-footer;
+    color: $footer-font-color;
+    padding: rem-calc(32px) 0;
+}
+
+.footer-container {
+    @include xy-grid-container;
+    @include xy-grid;
+    max-height: rem-calc(1000px);
+
+    @include breakpoint(500px) {
+        max-height: rem-calc(400px);
+    }
+}
+
+.footer-cell {
+    @include xy-cell(100%);
+
+    &_smaller {
+        height: rem-calc(250px);
+    }
+
+    /* stylelint-disable order/order */
+    @include breakpoint(500px) {
+        @include xy-cell(1 of 3);
+        height: rem-calc(400px);
+
+        &_smaller {
+            height: rem-calc(400px);
+        }
+    }
+    /* stylelint-enable order/order */
+
+    &__header {
+        font-family: Roboto;
+        letter-spacing: rem-calc(4px);
+        padding: rem-calc(16px) rem-calc(32px);
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    &__list {
+        list-style-type: none;
+    }
+}

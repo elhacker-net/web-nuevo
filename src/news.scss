@@ -1,0 +1,44 @@
+@import 'settings';
+@import 'foundation';
+@import 'webconfig';
+
+.news {
+    background: $bg-news;
+    padding: rem-calc(32px) 0;
+}
+
+.news-cell {
+    @include xy-grid($direction: vertical);
+    @include xy-cell(100%);
+    background: $bg-news-cell;
+    padding: rem-calc(20px);
+
+    @include breakpoint(1000px) {
+        @include xy-cell(1 of 2);
+    }
+
+    &__list {
+        @include xy-cell-base(grow);
+        @include xy-grid($direction: vertical);
+        list-style-type: none;
+        margin: 0;
+    }
+
+    &__header {
+        font-family: Roboto;
+        text-align: center;
+    }
+
+    &__listitem {
+        @include xy-grid;
+        @include flex-align($y: middle);
+        @include xy-cell-base(auto);
+        padding: rem-calc(10px) 0;
+    }
+}
+
+
+.news-container {
+    @include xy-grid;
+    @include xy-grid-container;
+}

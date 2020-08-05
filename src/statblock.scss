@@ -1,0 +1,14 @@
+@import 'settings';
+@import 'foundation';
+@import 'webconfig';
+
+
+.statblock {
+    @include xy-grid($direction: vertical);
+    @include flex-align($y: middle);
+
+    &__header {
+        font-family: Roboto;
+        text-align: center;
+    }
+}
