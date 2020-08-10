@@ -33,5 +33,9 @@
 
     &__title {
         @include xy-cell(auto);
+        font-size: 1.2em;
+        @include breakpoint(700px) {
+            font-size: inherit;
+        }
     }
 }
