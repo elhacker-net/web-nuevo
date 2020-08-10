@@ -6,7 +6,7 @@ import LastMessages from './lastmessages.jsx';
 import TopTopics from './toptopics.jsx';
 
 let propsToStats = {
-    totalUsers: 'Total De Usuarios',
+    totalUsers: 'Total de Usuarios',
     totalMessages: 'Total de Mensajes',
     totalTopics: 'Total de Temas',
     totalCategories: 'Total de Categorias',
@@ -34,10 +34,18 @@ export default ({
         <section className="forumstats">
             <div className="forumstats-container">
                 <div className="forumstats-cell forumstats-cell_stats">
-                    <StatBlock headerTitle="Estádisticas" stats={translatedMap} />
+                    <StatBlock
+                        emoji={{ glyph: ' 📈 ', name: 'stadistics' }}
+                        headerTitle="Estádisticas"
+                        stats={translatedMap}
+                    />
                 </div>
                 <div className="forumstats-cell forumstats-cell_weeklyPosters">
-                    <StatBlock headerTitle="Top Semanal" stats={topWeeklyPosters} />
+                    <StatBlock
+                        emoji={{ glyph: ' 📊 ', name: 'top posters' }}
+                        headerTitle="Top Semanal"
+                        stats={topWeeklyPosters}
+                    />
                 </div>
                 <div className="forumstats-cell forumstats-cell_usersOnline">
                     <OnlineUsers data={onlineUsers} />

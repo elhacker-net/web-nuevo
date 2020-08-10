@@ -1,6 +1,7 @@
 import React from 'react';
 import intersperse from './util/intersperse.js';
 import './onlineusers.scss';
+import ae from './util/emoji.jsx';
 
 const userFormat = ({ name, rank }) => (
     <a
@@ -17,7 +18,10 @@ const UsersOnline = ({ data }) => {
     const hidden = Math.max(users - userList.length, 0);
     return (
         <div className="users-online">
-            <h3 className="users-online__header">Usuarios En Linea</h3>
+            <h3 className="users-online__header">
+                {ae(' 🖥 ', 'users')}
+                Usuarios En Linea
+            </h3>
             <p>{`Hay ${visitors} visitantes y ${users} usuarios${hidden ? ` (${hidden} ocultos)` : ''}:`}</p>
             <p className="user-list">
                 {intersperse(userList.map(userFormat), ', ')}

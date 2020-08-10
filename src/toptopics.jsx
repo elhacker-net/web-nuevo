@@ -21,7 +21,10 @@ const topTopicsFormat = ({
 
 const TopTopics = ({ topics }) => (
     <div className="top-topics">
-        <h3 className="top-topics__header">Temas con más respuestas</h3>
+        <h3 className="top-topics__header">
+            {ae(' ☄️ ', 'hot topics')}
+            Temas con más respuestas
+        </h3>
         <ul className="no-bullet top-topics__list">
             {topics.map(topTopicsFormat)}
         </ul>
