@@ -10,6 +10,7 @@
 .news-cell {
     @include xy-grid($direction: vertical);
     @include xy-cell(100%);
+    @include flex-align($y: middle);
     background: $bg-news-cell;
     padding: rem-calc(20px);
 
@@ -18,7 +19,7 @@
     }
 
     &__list {
-        @include xy-cell-base(grow);
+        @include xy-cell(auto);
         @include xy-grid($direction: vertical);
         list-style-type: none;
         margin: 0;
@@ -32,7 +33,7 @@
     &__listitem {
         @include xy-grid;
         @include flex-align($y: middle);
-        @include xy-cell-base(auto);
+        @include xy-cell(auto);
         padding: rem-calc(10px) 0;
     }
 }
