@@ -4,11 +4,40 @@
 
 
 .statblock {
-    @include xy-grid($direction: vertical);
-    @include flex-align($y: middle);
+    @include xy-grid;
+    @include flex-align($x: center);
 
     &__header {
+        @include xy-cell(100%);
         font-family: Roboto;
         text-align: center;
+    }
+
+    &__list {
+        @include xy-cell($size: 100%, $gutter-type: none);
+
+        @include breakpoint(medium) {
+            @include xy-cell($size: 4 of 5, $gutter-type: none);
+        }
+
+        @include breakpoint(large) {
+            @include xy-cell($size: 100%, $gutter-type: none);
+        }
+    }
+
+    &__listitem {
+        @include xy-grid;
+        padding: 0.2em 0;
+    }
+
+    &__name {
+        @include xy-cell(auto);
+        word-break: break-word;
+    }
+
+    &__val {
+        @include xy-cell(shrink);
+        @include xy-grid;
+        @include flex-align($x: right, $y: bottom);
     }
 }
