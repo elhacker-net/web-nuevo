@@ -1,6 +1,6 @@
 import React from 'react';
-import './lastmessages.scss';
-import ae from './util/emoji.jsx';
+import './index.scss';
+import ae from '@Util/emoji.jsx';
 
 const topicFormat = ({
     forum,

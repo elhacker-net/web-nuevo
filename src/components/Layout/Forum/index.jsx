@@ -1,9 +1,9 @@
 import React from 'react';
-import './forumstats.scss';
-import StatBlock from './statblock.jsx';
-import OnlineUsers from './onlineusers.jsx';
-import LastMessages from './lastmessages.jsx';
-import TopTopics from './toptopics.jsx';
+import './index.scss';
+import StatBlock from '@Components/Containers/StatBlock';
+import OnlineUsers from '@Components/Containers/OnlineUsers';
+import LastMessages from '@Components/Containers/LastMessages';
+import TopTopics from '@Components/Containers/TopTopics';
 
 let propsToStats = {
     totalUsers: 'Total de Usuarios',

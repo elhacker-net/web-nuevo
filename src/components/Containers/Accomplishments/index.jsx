@@ -1,6 +1,6 @@
 import React from 'react';
-import './accomplishments.scss';
-import ae from './util/emoji.jsx';
+import './index.scss';
+import ae from '@Util/emoji.jsx';
 
 export default () => (
     <section className="list-why">

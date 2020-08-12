@@ -1,6 +1,6 @@
 import React from 'react';
-import Accomplishments from './accomplishments.jsx';
-import './intro.scss';
+import Accomplishments from '@Components/Containers/Accomplishments';
+import './index.scss';
 
 export default () => (
     <div className="intro">

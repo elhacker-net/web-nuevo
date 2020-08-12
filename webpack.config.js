@@ -1,5 +1,8 @@
 const path = require('path');
-const webpack = require('webpack');
+const ProgressPlugin = require('webpack/lib/ProgressPlugin.js');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const alias = require('./webpack.alias.config');
 /*
  * SplitChunksPlugin is enabled by default and replaced
  * deprecated CommonsChunkPlugin. It automatically identifies modules which
@@ -12,8 +15,6 @@ const webpack = require('webpack');
  * https://webpack.js.org/plugins/split-chunks-plugin/
  *
  */
-
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 /*
  * We've enabled HtmlWebpackPlugin for you! This generates a html
@@ -36,9 +37,14 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
     },
 
-    plugins: [new webpack.ProgressPlugin(), new HtmlWebpackPlugin({
+    plugins: [new ProgressPlugin(), new HtmlWebpackPlugin({
         template: 'html/template.html',
     })],
+
+    resolve: {
+        alias,
+        extensions: ['.js', '.jsx', '.css'],
+    },
 
     module: {
         rules: [

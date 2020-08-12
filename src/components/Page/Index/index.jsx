@@ -1,9 +1,9 @@
 import React from 'react';
-import Header from './header.jsx';
-import Intro from './intro.jsx';
-import News from './news.jsx';
-import ForumStats from './forumstats.jsx';
-import Footer from './footer.jsx';
+import Header from '@Components/Layout/Header';
+import Intro from '@Components/Layout/Intro';
+import News from '@Components/Layout/News';
+import ForumStats from '@Components/Layout/Forum';
+import Footer from '@Components/Layout/Footer';
 import {
     links,
     announcements,
@@ -14,7 +14,7 @@ import {
     onlineUsers,
     topTopics,
     footerLinks,
-} from './data.js';
+} from '@Util/data.js';
 
 const App = () => (
     <>

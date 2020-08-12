@@ -1,6 +1,6 @@
 import React from 'react';
-import './news.scss';
-import ae from './util/emoji.jsx';
+import './index.scss';
+import ae from '@Util/emoji.jsx';
 
 export default ({ announcements, articles }) => (
     <section className="news">

@@ -1,6 +1,6 @@
 import React from 'react';
-import ae from './util/emoji.jsx';
-import './toptopics.scss';
+import ae from '@Util/emoji.jsx';
+import './index.scss';
 
 const topTopicsFormat = ({
     title,

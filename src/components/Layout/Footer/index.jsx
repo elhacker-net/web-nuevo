@@ -1,5 +1,5 @@
 import React from 'react';
-import './footer.scss';
+import './index.scss';
 
 const servicesFormat = ([name, url], index) => (
     <li className="footer-cell__listitem" key={`${name},${index}`}>

@@ -1,7 +1,7 @@
 import React from 'react';
-import intersperse from './util/intersperse.js';
-import './onlineusers.scss';
-import ae from './util/emoji.jsx';
+import intersperse from '@Util/intersperse.js';
+import './index.scss';
+import ae from '@Util/emoji.jsx';
 
 const userFormat = ({ name, rank }) => (
     <a

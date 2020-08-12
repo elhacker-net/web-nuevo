@@ -1,6 +1,6 @@
 import React from 'react';
-import './statblock.scss';
-import ae from './util/emoji.jsx';
+import './index.scss';
+import ae from '@Util/emoji.jsx';
 
 const keyPairFormat = ([name, val]) => (
     <li className="statblock__listitem" key={`${name}`}>
