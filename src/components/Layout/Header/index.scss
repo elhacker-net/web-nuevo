@@ -1,0 +1,50 @@
+@import 'settings';
+@import 'foundation';
+@import 'webconfig';
+
+.page-header {
+    background: $bg;
+}
+
+.navbar-container {
+    @include xy-grid;
+    @include xy-grid-container;
+    @include xy-gutters($gutter-type: padding, $gutter-position: top);
+    @include breakpoint(850px) {
+        @include flex-align($x: right);
+    }
+}
+
+.navbar {
+    @include xy-cell(
+        $size: 100%,
+        $gutter-type: none
+    );
+    @include xy-grid;
+
+    @include breakpoint(850px) {
+        @include xy-cell($size: 1 of 2);
+    }
+
+    &__button {
+
+        @include button(
+            $background: $bg,
+            $background-hover: $bghover,
+            $color: #515151
+        );
+
+        @include xy-cell($size: auto, $gutter-type: none);
+        font-size: 0.8rem;
+        padding: 0.85em 0.3em;
+
+        @include breakpoint(400px) {
+            font-size: 1rem;
+            padding: $button-padding;
+        }
+    }
+
+    &__button:hover {
+        color: #FFF;
+    }
+}

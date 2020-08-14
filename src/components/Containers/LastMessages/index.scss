@@ -1,0 +1,41 @@
+@import 'settings';
+@import 'foundation';
+@import 'webconfig';
+
+.last-messages {
+    &__header {
+        font-family: Roboto;
+        text-align: center;
+    }
+
+    &__row {
+        @include xy-grid;
+        @include xy-gutters($gutters: 2rem, $gutter-position: (bottom, top));
+    }
+
+    &__column {
+        @include xy-cell(100%);
+
+        &_align_right {
+            text-align: initial;
+        }
+        /* stylelint-disable order/order */
+        @include breakpoint(700px) {
+            @include xy-cell(2 of 10);
+
+            &_align_right {
+                text-align: right;
+            }
+        }
+        /* stylelint-enable order/order */
+
+    }
+
+    &__title {
+        @include xy-cell(auto);
+        font-size: 1.2em;
+        @include breakpoint(700px) {
+            font-size: inherit;
+        }
+    }
+}

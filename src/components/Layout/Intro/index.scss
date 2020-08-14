@@ -1,0 +1,31 @@
+@import 'settings';
+@import 'foundation';
+@import 'webconfig';
+
+.intro {
+    background: $bg-intro;
+}
+
+.intro-container {
+    @include xy-grid;
+    @include xy-gutters(
+        $gutter-position: top bottom,
+        $gutter-type: padding
+    );
+    @include xy-grid-container;
+    @include flex-align($y : middle);
+    min-height: 80vh;
+}
+
+.logo {
+    @include xy-cell(100%);
+    background-image: url('/img/logo3.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    min-height: 350px;
+
+    @include breakpoint(700px) {
+        @include xy-cell(1 of 2);
+    }
+}

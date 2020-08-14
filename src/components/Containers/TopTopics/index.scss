@@ -1,0 +1,24 @@
+@import 'settings';
+@import 'foundation';
+@import 'webconfig';
+
+.top-topics {
+    &__header {
+        font-family: Roboto;
+        text-align: center;
+    }
+
+    &__row {
+        @include xy-grid;
+    }
+
+    &__column {
+        @include xy-cell(1 of 10);
+        text-align: right;
+
+        &_title {
+            @include xy-cell(auto);
+            text-align: initial;
+        }
+    }
+}

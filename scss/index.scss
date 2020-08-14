@@ -1,9 +1,36 @@
 @import 'settings';
 @import 'foundation';
+@import 'webconfig';
 
 //todo: incluir solo lo que necesitamos
-@include foundation-everything;
+@include foundation-global-styles;
+@include foundation-typography;
+@include foundation-button;
+
+body {
+    background: $bg;
+    font-family: 'Sora', sans-serif;
+    height: 95vh;
+}
+
+.emoji {
+    font-family: Segoe UI Emoji, Apple Color Emoji, Noto Color Emoji;
+}
+
+.link {
+    color: #656565;
+    font-weight: 500;
+
+    &:hover {
+        color: #656565;
+        text-decoration: solid underline #659BFF;
+    }
+}
 
 #app {
-    font-weight: bold;
+    height: 100%;
+
+    /*Posible alternativa es que #app sea un grid también*/
 }
+
+

@@ -1,0 +1,48 @@
+@import 'settings';
+@import 'foundation';
+@import 'webconfig';
+
+.forumstats {
+    background: #FFF;
+}
+
+.forumstats-container {
+    @include xy-grid-container;
+    @include xy-grid;
+}
+
+.forumstats-cell {
+    @include xy-cell(100%);
+    padding: 2em 0;
+
+    @include breakpoint(large) {
+        &_stats {
+            @include xy-cell($size: 1 of 2, $gutter-type: margin);
+        }
+
+        &_weeklyPosters {
+            @include xy-cell($size: 1 of 2, $gutter-type: margin);
+        }
+
+        &_usersOnline {
+            @include xy-cell(100%);
+        }
+    }
+
+    @include breakpoint(xxlarge) {
+        @include xy-cell-size(1 of 3);
+    }
+
+    &__list {
+        list-style-type: none;
+    }
+
+    &_width_all {
+        @include xy-cell(100%);
+    }
+
+    &__header {
+        font-family: Roboto;
+        text-align: center;
+    }
+}
