@@ -1,6 +1,5 @@
 import React from 'react';
 import Header from '@Components/Layout/Header';
-import Intro from '@Components/Layout/Intro';
 import News from '@Components/Layout/News';
 import ForumStats from '@Components/Layout/Forum';
 import Footer from '@Components/Layout/Footer';
@@ -19,7 +18,6 @@ import {
 const App = () => (
     <>
         <Header links={links} />
-        <Intro />
         <News announcements={announcements} articles={articles} />
         <ForumStats
             generalStatistics={generalStatistics}

@@ -4,6 +4,24 @@
 
 .intro {
     background: $bg-intro;
+
+    &__cell {
+        @include xy-grid;
+        @include xy-cell(100%);
+
+        @include breakpoint(1024px) {
+            @include xy-cell(1 of 2);
+        }
+
+        &_list {
+            @include flex-order(1);
+            @include flex-align($x: center);
+
+            @include breakpoint(1024px) {
+                @include flex-order(0);
+            }
+        }
+    }
 }
 
 .intro-container {
@@ -13,7 +31,7 @@
         $gutter-type: padding
     );
     @include xy-grid-container;
-    @include flex-align($y : middle);
+    @include flex-align($y: middle);
     min-height: 80vh;
 }
 
@@ -24,8 +42,4 @@
     background-repeat: no-repeat;
     background-size: contain;
     min-height: 350px;
-
-    @include breakpoint(700px) {
-        @include xy-cell(1 of 2);
-    }
 }
