@@ -5,8 +5,12 @@ import './index.scss';
 export default () => (
     <div className="intro">
         <div className="intro-container">
-            <Accomplishments />
-            <div className="logo" />
+            <div className="intro__cell intro__cell_list">
+                <Accomplishments />
+            </div>
+            <div className="intro__cell">
+                <div className="logo" />
+            </div>
         </div>
     </div>
 );

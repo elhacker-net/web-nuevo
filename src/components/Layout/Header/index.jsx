@@ -1,5 +1,6 @@
 import React from 'react';
 import './index.scss';
+import Intro from '@Components/Layout/Intro';
 
 const Navigation = ({ links }) => (
     <nav className="navbar">
@@ -16,5 +17,6 @@ export default ({ links }) => (
         <div className="navbar-container">
             <Navigation links={links} />
         </div>
+        <Intro />
     </header>
 );
