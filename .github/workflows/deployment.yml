@@ -55,7 +55,7 @@ jobs:
                   chmod 600 $HOME/.ssh/id_rsa
                   eval $(ssh-agent)
                   ssh-add $HOME/.ssh/id_rsa
-                  echo "$SSH_HOST $HOST_KEY" > /etc/ssh/ssh_known_hosts
+                  echo "$SSH_HOST $HOST_KEY" > $HOME/.ssh/known_hosts
                   echo ::set-env name=SSH_AUTH_SOCK::$SSH_AUTH_SOCK
                   echo ::set-env name=SSH_AGENT_PID::$SSH_AGENT_PID
             - 
