@@ -1,0 +1,8 @@
+version: "3.0"
+services:
+    webpack:
+        image: ghcr.io/elhacker-net/web-nuevo/arm32v6/web-dev:latest
+        container_name: webpack
+        restart: always
+        ports:
+            - "80:8080/tcp"
