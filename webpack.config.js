@@ -25,7 +25,7 @@ const alias = require('./webpack.alias.config');
  *
  */
 
-module.exports = {
+module.exports = (env) => ({
     mode: 'development',
 
     entry: {
@@ -38,13 +38,18 @@ module.exports = {
     },
 
     plugins: [new ProgressPlugin(), new HtmlWebpackPlugin({
-        template: 'html/template.html',
+        template: env.mode === 'production' ? 'html/template.prod.html' : 'html/template.dev.html',
     })],
 
     resolve: {
         alias,
         extensions: ['.js', '.jsx', '.css'],
     },
+
+    externals: env.mode === 'production' ? {
+        react: 'React',
+        'react-dom': 'ReactDOM',
+    } : { },
 
     module: {
         rules: [
@@ -109,4 +114,4 @@ module.exports = {
         hot: true,
         open: true,
     },
-};
+});

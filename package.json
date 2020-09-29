@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server --env.mode=development",
+    "eslint": "eslint . --ext js,jsx",
+    "stylelint": "stylelint **/*.\\(scss\\|sass\\)",
+    "build": "webpack --env.mode=production --mode=production"
   },
   "keywords": [
     "forum",
