@@ -11,8 +11,8 @@ jobs:
             - name: Install dependencies
               run: npm ci
             - name: Run eslint
-              run: npx eslint
+              run: npm run eslint
             - name: Run stylelint
-              run: npx stylelint
+              run: npm run stylelint
             - name: Run build
               run: npm run build
