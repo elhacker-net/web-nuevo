@@ -3,65 +3,75 @@ on:
     push:
         branch: dev
 jobs:
-    build_dev_pi_image:
-        name: Build docker image for rPIv2 (Arm v6)
-        runs-on: ubuntu-20.04
+    build_dev:
+        runs-on: [self-hosted, Linux, ARM64, deployment]
+        name: Build docker image for rPIv4 (Arm v8)
         steps:
             - uses: actions/checkout@v2
-            - name: Login to GHCR
-              uses: docker/login-action@v1
-              with:
-                  registry: ghcr.io
-                  username: ${{ secrets.CR_USER }}
-                  password: ${{ secrets.CR_PAT }}
-            - uses: docker/setup-qemu-action@v1
-              with:
-                  platforms: all
-            - name: Create builder
-              uses: docker/setup-buildx-action@v1
+            - name: Build Docker Image
+              run: docker build -t ghcr.io/elhacker-net/web-nuevo/arm64v8/web-dev -f docker/armv8-node/Dockerfile .
+            - name: Relaunch docker containers
+              run: docker-compose up --force-recreate -d
 
-            - name: Build and push docker image
-              uses: docker/build-push-action@v2
-              with:
-                  context: .
-                  file: ./docker/armv6-node/Dockerfile
-                  platforms: linux/arm/v6
-                  push: true
-                  tags:
-                      ghcr.io/elhacker-net/web-nuevo/arm32v6/web-dev:latest
-    deploy_to_rpi:
-        name: Pull image from GHCR and run with docker-compose
-        needs: build_dev_pi_image
-        runs-on: ubuntu-20.04
-        env:
-            SSH_HOST: ${{ secrets.SSH_HOST }}
-            SSH_USER: ${{ secrets.SSH_USER }}
-            SSH_PORT: ${{ secrets.SSH_PORT }}
-        steps:
-            - uses: actions/checkout@v2
-            - name: Set SSH client
-              env:
-                  SSH_PRIVATE_KEY: ${{ secrets.GA_PRIV_KEY }}
-                  HOST_KEY: ${{ secrets.HOST_KEY }}
-                  SSH_HOST: ${{ secrets.SSH_HOST }}
-              run: |
-                  mkdir -p $HOME/.ssh
-                  echo "$SSH_PRIVATE_KEY" > $HOME/.ssh/id_rsa
-                  chmod 600 $HOME/.ssh/id_rsa
-                  eval $(ssh-agent)
-                  ssh-add $HOME/.ssh/id_rsa
-                  echo "$SSH_HOST $HOST_KEY" > $HOME/.ssh/known_hosts
-                  echo ::set-env name=SSH_AUTH_SOCK::$SSH_AUTH_SOCK
-                  echo ::set-env name=SSH_AGENT_PID::$SSH_AGENT_PID
-            - name: Set DOCKER_HOST
-              run: echo "::set-env name=DOCKER_HOST::ssh://$SSH_USER@$SSH_HOST:$SSH_PORT"
-            - name: Login to GHCR
-              uses: docker/login-action@v1
-              with:
-                  registry: ghcr.io
-                  username: ${{ secrets.CR_USER }}
-                  password: ${{ secrets.CR_PAT }}
-            - name: Pull image and run in host
-              run: |
-                  docker-compose pull --quiet
-                  docker-compose up --force-recreate -d
+#    build_dev_pi_image:
+#        name: Build docker image for rPIv2 (Arm v6)
+#        runs-on: ubuntu-20.04
+#        steps:
+#            - uses: actions/checkout@v2
+#            - name: Login to GHCR
+#              uses: docker/login-action@v1
+#              with:
+#                  registry: ghcr.io
+#                  username: ${{ secrets.CR_USER }}
+#                  password: ${{ secrets.CR_PAT }}
+#            - uses: docker/setup-qemu-action@v1
+#              with:
+#                  platforms: all
+#            - name: Create builder
+#              uses: docker/setup-buildx-action@v1
+#
+#            - name: Build and push docker image
+#              uses: docker/build-push-action@v2
+#              with:
+#                  context: .
+#                  file: ./docker/armv6-node/Dockerfile
+#                  platforms: linux/arm/v6
+#                  push: true
+#                  tags:
+#                      ghcr.io/elhacker-net/web-nuevo/arm32v6/web-dev:latest
+#    deploy_to_rpi:
+#        name: Pull image from GHCR and run with docker-compose
+#        needs: build_dev_pi_image
+#        runs-on: ubuntu-20.04
+#        env:
+#            SSH_HOST: ${{ secrets.SSH_HOST }}
+#            SSH_USER: ${{ secrets.SSH_USER }}
+#            SSH_PORT: ${{ secrets.SSH_PORT }}
+#        steps:
+#            - uses: actions/checkout@v2
+#            - name: Set SSH client
+#              env:
+#                  SSH_PRIVATE_KEY: ${{ secrets.GA_PRIV_KEY }}
+#                  HOST_KEY: ${{ secrets.HOST_KEY }}
+#                  SSH_HOST: ${{ secrets.SSH_HOST }}
+#              run: |
+#                  mkdir -p $HOME/.ssh
+#                  echo "$SSH_PRIVATE_KEY" > $HOME/.ssh/id_rsa
+#                  chmod 600 $HOME/.ssh/id_rsa
+#                  eval $(ssh-agent)
+#                  ssh-add $HOME/.ssh/id_rsa
+#                  echo "$SSH_HOST $HOST_KEY" > $HOME/.ssh/known_hosts
+#                  echo ::set-env name=SSH_AUTH_SOCK::$SSH_AUTH_SOCK
+#                  echo ::set-env name=SSH_AGENT_PID::$SSH_AGENT_PID
+#            - name: Set DOCKER_HOST
+#              run: echo "::set-env name=DOCKER_HOST::ssh://$SSH_USER@$SSH_HOST:$SSH_PORT"
+#            - name: Login to GHCR
+#              uses: docker/login-action@v1
+#              with:
+#                  registry: ghcr.io
+#                  username: ${{ secrets.CR_USER }}
+#                  password: ${{ secrets.CR_PAT }}
+#            - name: Pull image and run in host
+#              run: |
+#                  docker-compose pull --quiet
+#                  docker-compose up --force-recreate -d
