@@ -3,23 +3,22 @@
 @import 'webconfig';
 
 .intro {
-    background: $bg-intro;
+    background: linear-gradient(135deg, $color-honolulu-blue, $color-dark-sky-blue);
+
+    &__participate {
+        color: $color-isabelline;
+        padding: 20px;
+        text-align: center;
+        text-shadow: 2px 2px 5px $color-jet;
+    }
 
     &__cell {
         @include xy-grid;
+        @include flex-align($x: center);
         @include xy-cell(100%);
 
         @include breakpoint(1024px) {
             @include xy-cell(1 of 2);
-        }
-
-        &_list {
-            @include flex-order(1);
-            @include flex-align($x: center);
-
-            @include breakpoint(1024px) {
-                @include flex-order(0);
-            }
         }
     }
 }
@@ -35,11 +34,27 @@
     min-height: 80vh;
 }
 
-.logo {
+.slogan {
+    color: $color-isabelline;
+    text-align: center;
+    text-shadow: 2px 10px 8px $color-jet;
+}
+
+/*.logo {
     @include xy-cell(100%);
-    background-image: url('/img/logo3.png');
+    background-image: url('/img/logo6.png');
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: auto;
     min-height: 350px;
-}
+}*/
+
+/*
+.sketch {
+    @include xy-cell(100%);
+    background-image: url('/img/sketch.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: auto;
+    height: rem-calc(750px);
+}*/

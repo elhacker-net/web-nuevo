@@ -4,7 +4,11 @@ import ae from '@Util/emoji.jsx';
 
 export default () => (
     <section className="list-why">
-        <div className="list-why__cell">
+        <div className="terminal list-why__cell">
+            <div className="terminal__header">
+                <div className="terminal__icon" />
+                &nbsp;root@elhacker.net
+            </div>
             <ul className="list-why__list no-bullet">
                 <li className="list-why__listitem">
                     {ae(' 🌍 ', 'community')}

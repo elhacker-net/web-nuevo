@@ -1,8 +1,18 @@
 @import 'settings';
 @import 'foundation';
+@import  'webconfig';
 
 .list-why {
     @include xy-grid;
+    color: $color-isabelline;
+
+    &__list {
+        background: $color-jet;
+        border: 1px solid smart-scale($color-isabelline, 65%, 40%);
+        border-radius: rem-calc(10px);
+        margin: 0;
+        padding: rem-calc(10px);
+    }
 
     &__listitem {
         padding: rem-calc(10px) 0;
@@ -10,5 +20,24 @@
 
     &__cell {
         @include xy-cell(100%);
+        background: smart-scale($color-jet, 5%, 40%);
+        border-radius: rem-calc(10px);
+        padding: rem-calc(10px);
+    }
+}
+
+.terminal {
+    &__header {
+        font-family: monospace;
+        font-size: rem-calc(20px);
+    }
+
+    &__icon {
+        background: $color-honolulu-blue;
+        border: 1px solid smart-scale($color-isabelline, 55%, 40%);
+        border-radius: 50%;
+        display: inline-block;
+        height: rem-calc(16px);
+        width: rem-calc(16px);
     }
 }
