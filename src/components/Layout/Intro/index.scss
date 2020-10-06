@@ -3,23 +3,22 @@
 @import 'webconfig';
 
 .intro {
-    background: $bg-intro;
+    &__participate {
+        @include xy-cell(100%);
+        color: $color-isabelline;
+        padding: 20px;
+        text-align: center;
+        text-shadow: 2px 2px 5px $color-jet;
+    }
 
     &__cell {
         @include xy-grid;
+        @include flex-align($x: center);
         @include xy-cell(100%);
+        margin-top: rem-calc(20px);
 
         @include breakpoint(1024px) {
             @include xy-cell(1 of 2);
-        }
-
-        &_list {
-            @include flex-order(1);
-            @include flex-align($x: center);
-
-            @include breakpoint(1024px) {
-                @include flex-order(0);
-            }
         }
     }
 }
@@ -33,13 +32,4 @@
     @include xy-grid-container;
     @include flex-align($y: middle);
     min-height: 80vh;
-}
-
-.logo {
-    @include xy-cell(100%);
-    background-image: url('/img/logo3.png');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    min-height: 350px;
 }
