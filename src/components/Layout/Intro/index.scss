@@ -23,6 +23,11 @@
     }
 }
 
+.logo {
+    max-width: 280px;
+    width: 100%;
+}
+
 .intro-container {
     @include xy-grid;
     @include xy-gutters(
@@ -31,5 +36,4 @@
     );
     @include xy-grid-container;
     @include flex-align($y: middle);
-    min-height: 80vh;
 }
