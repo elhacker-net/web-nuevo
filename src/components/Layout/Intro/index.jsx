@@ -6,7 +6,7 @@ export default () => (
     <div className="intro">
         <div className="intro-container">
             <div className="intro__cell">
-                <img className="logo" alt="Logotipo" src="/img/logo6.png" />
+                <img className="logo" alt="Logotipo" src="/img/logo.svg" />
                 <h3 className="intro__participate">Comunidad Hispana de Informática</h3>
                 <Accomplishments />
             </div>

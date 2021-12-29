@@ -44,6 +44,15 @@ const announcements = [
     ['Actualizados los Trucos Mozilla Firefox', '10-08-19'],
     ['Arreglado registro usuarios de Warzone', '11-06-18'],
 ];
+
+const services = [
+    ['Localizador IP', 'https://via.placeholder.com/100x100.png?text=Icon'],
+    ['Whois IP/Dominio', '/img/whois.svg'],
+    ['Registros DNS', '/img/dns.svg'],
+    ['Convertidor', '/img/converter.svg'],
+    ['Noticias', '/img/news.svg'],
+    ['Webmasters', 'https://via.placeholder.com/100x100.png?text=Icon'],
+];
 const articles = [
     'Google desplegará un cable submarino que unirá EEUU, Reino Unido y España',
     'WhatsApp, Instagram y Facebook sufren una caída durante media hora que afectó',
@@ -156,4 +165,5 @@ export {
     onlineUsers,
     topTopics,
     footerLinks,
+    services,
 };
