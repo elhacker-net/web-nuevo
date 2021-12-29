@@ -3,7 +3,6 @@
         "browser": true
     },
     "rules": {
-        "import/extensions": ["error", "ignorePackages"],
         "prefer-const": "off",
         "indent": ["error", 4],
         "space-before-blocks": "off",
