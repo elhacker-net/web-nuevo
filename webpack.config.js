@@ -32,14 +32,13 @@ module.exports = (env) => {
     };
 
     return {
-        mode: 'development',
-
+        mode: safeEnv.mode,
         entry: {
             index: ['react-hot-loader/patch', './src/index.jsx'],
         },
 
         output: {
-            filename: '[name].[hash].js',
+            filename: '[name].[contenthash].js',
             path: path.resolve(__dirname, 'dist'),
         },
 
@@ -112,12 +111,13 @@ module.exports = (env) => {
                 chunks: 'async',
                 minChunks: 1,
                 minSize: 30000,
-                name: true,
             },
         },
 
         devServer: {
-            contentBase: path.join(__dirname, 'public'),
+            static: {
+                directory: path.join(__dirname, 'public'),
+            },
             hot: true,
             open: true,
         },

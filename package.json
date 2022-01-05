@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --env.mode=development",
+    "start": "webpack serve --node-env development --env mode=development",
     "eslint": "eslint . --ext js,jsx --ignore-pattern dist/",
     "stylelint": "stylelint **/*.\\(scss\\|sass\\) --ignore-pattern dist/",
-    "build": "webpack --env.mode=production --mode=production"
+    "build": "webpack --node-env production --env mode=production"
   },
   "keywords": [
     "forum",
@@ -26,9 +26,9 @@
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
-    "babel-loader": "^8.1.0",
+    "babel-loader": "^8.2.3",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
-    "css-loader": "^3.5.3",
+    "css-loader": "^6.5.1",
     "eslint": "^7.2.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-import-resolver-webpack": "^0.12.2",
@@ -36,18 +36,18 @@
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-react-hooks": "^4.0.6",
-    "html-webpack-plugin": "^4.2.0",
+    "html-webpack-plugin": "^5.5.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
     "sass": "^1.26.11",
-    "sass-loader": "^8.0.2",
-    "style-loader": "^1.2.0",
+    "sass-loader": "^12.4.0",
+    "style-loader": "^3.3.1",
     "stylelint": "^14.2.0",
     "stylelint-config-sass-guidelines": "^9.0.1",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1",
     "webpack-dev": "^1.1.1",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^4.7.2"
   },
   "optionalDependencies": {
     "fsevents": "1.2.13"
