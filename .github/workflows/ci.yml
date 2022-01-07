@@ -5,12 +5,9 @@ on:
             - dev
 jobs:
     lint_and_build:
-        runs-on: [self-hosted, linux, ARM64, ci]
+        runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
-              with:
-                  persist-credentials: false
-                  ref: refs/pull/${{ github.event.pull_request.number }}/merge
             - name: Install dependencies
               run: npm ci
             - name: Run eslint
