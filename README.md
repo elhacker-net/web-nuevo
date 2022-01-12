@@ -2,11 +2,15 @@
 
 Sitio web construido con React.
 
+## Entorno de desarrollo
+
+[Servidor de desarrollo de elhacker.net](htttps://web.elhacker.net)
+
 ## Desarrollo
 
 El repositorio usa la extensión LFS, lo que significa que se necesita instalar para revisar las imagenes (y el sitio web) correctamente. Puedes revisar la documentación de como instalar la extensión [aquí](https://github.com/git-lfs/git-lfs/wiki/Installation).
 
-El primer paso sería clonar el repositorio usando HTTPS o SSH. Como el repositorio es privado, se necesita autentificar.
+El primer paso sería clonar el repositorio usando HTTPS o SSH.
 
 Para SSH (se necesita llave SSH).
 ```
