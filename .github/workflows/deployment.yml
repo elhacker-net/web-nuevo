@@ -1,31 +1,30 @@
 name: deployment
 on:
     push:
-        branch: dev
+        branches:
+            - dev
 jobs:
     build_dev:
         runs-on: ubuntu-latest
         name: Update docker image and launch new containers
         steps:
-            -
-                name: Login to GHCR
-                uses: docker/login-action@v1
-                with:
-                    registry: ghcr.io
-                    username: ${{ github.actor }}
-                    password: ${{ secrets.GITHUB_TOKEN }}
-            -
-                name: Build and push docker image
-                uses: docker/build-push-action@v2
-                with:
-                    context: .
-                    file: ./docker/amd64-node/Dockerfile
-                    tags: ghcr.io/web-nuevo/amd64/web-dev:latest
-                    push: true
-            -
-                name: Trigger Webhook
-                env:
-                    DEPLOYMENT_HEADER: ${{ secrets.DEPLOYMENT_HEADER }}
-                    DEPLOYMENT_URL: ${{ secrets.DEPLOYMENT_URL }}
-                    DEPLOYMENT_TOKEN: ${{ secrets.DEPLOYMENT_TOKEN }}
-                run: curl -H "${DEPLOYMENT_HEADER}: $DEPLOYMENT_TOKEN" "$DEPLOYMENT_URL"
+            - name: Login to GHCR
+              uses: docker/login-action@v1
+              with:
+                  registry: ghcr.io
+                  username: ${{ github.actor }}
+                  password: ${{ secrets.GITHUB_TOKEN }}
+            - name: Build and push docker image
+              uses: docker/build-push-action@v2
+              with:
+                  context: .
+                  file: ./docker/amd64-node/Dockerfile
+                  tags: ghcr.io/web-nuevo/amd64/web-dev:latest
+                  push: true
+            - name: Trigger Webhook
+              env:
+                  DEPLOYMENT_HEADER: ${{ secrets.DEPLOYMENT_HEADER }}
+                  DEPLOYMENT_URL: ${{ secrets.DEPLOYMENT_URL }}
+                  DEPLOYMENT_TOKEN: ${{ secrets.DEPLOYMENT_TOKEN }}
+              run: |
+                curl -H "${DEPLOYMENT_HEADER}: $DEPLOYMENT_TOKEN" "$DEPLOYMENT_URL"
