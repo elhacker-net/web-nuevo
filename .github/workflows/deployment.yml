@@ -22,7 +22,7 @@ jobs:
               with:
                   context: .
                   file: ./docker/amd64-node/Dockerfile
-                  tags: ghcr.io/web-nuevo/amd64/web-dev:latest
+                  tags: ghcr.io/elhacker-net/web-nuevo/amd64/web-dev:latest
                   push: true
             - name: Trigger Webhook
               env:
