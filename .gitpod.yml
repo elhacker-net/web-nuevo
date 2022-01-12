@@ -1,6 +1,6 @@
 tasks:
   - init: npm install
-    command: npm start -- --host=0.0.0.0 --allowed-hosts ".gitpod.io"
+    command: npm start -- --host=0.0.0.0 --allowed-hosts ".gitpod.io" --client-web-socket-url auto://$(gp url 8080 | sed 's+https://++')/ws
 ports:
   - port: 8080
     onOpen: open-preview
