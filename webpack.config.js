@@ -1,5 +1,5 @@
 const path = require('path');
-const ProgressPlugin = require('webpack/lib/ProgressPlugin.js');
+const ProgressPlugin = require('webpack/lib/ProgressPlugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const alias = require('./webpack.alias.config');
