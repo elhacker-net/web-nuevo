@@ -1,6 +1,7 @@
 const path = require('path');
 const ProgressPlugin = require('webpack/lib/ProgressPlugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const alias = require('./webpack.alias.config');
 /*
@@ -42,7 +43,7 @@ module.exports = (env) => {
             path: path.resolve(__dirname, 'dist'),
         },
 
-        plugins: [new ProgressPlugin(), new HtmlWebpackPlugin({
+        plugins: [new MiniCssExtractPlugin(), new ProgressPlugin(), new HtmlWebpackPlugin({
             template: safeEnv.mode === 'production' ? 'html/template.prod.html' : 'html/template.dev.html',
         })],
 
@@ -61,7 +62,7 @@ module.exports = (env) => {
                 {
                     test: /.s[ac]ss$/i,
                     use: [
-                        'style-loader',
+                        safeEnv.mode === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
                         'css-loader',
                         {
                             loader: 'sass-loader',
