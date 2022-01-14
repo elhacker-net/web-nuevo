@@ -39,6 +39,7 @@
     "html-webpack-plugin": "^5.5.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
+    "mini-css-extract-plugin": "^2.4.7",
     "sass": "^1.26.11",
     "sass-loader": "^12.4.0",
     "style-loader": "^3.3.1",
