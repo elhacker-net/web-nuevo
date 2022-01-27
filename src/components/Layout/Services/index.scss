@@ -21,8 +21,21 @@
     display: grid;
     grid-auto-rows: rem-calc(200px);
     grid-gap: rem-calc(40px);
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     padding: rem-calc(50px) 0;
+
+    @include breakpoint(370px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoint(570px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include breakpoint(750px) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
 
     &__item {
         background: $color-isabelline;
