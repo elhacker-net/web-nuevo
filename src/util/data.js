@@ -46,12 +46,12 @@ const announcements = [
 ];
 
 const services = [
-    ['Localizador IP', 'https://via.placeholder.com/100x100.png?text=Icon'],
+    ['Localizador IP', '/img/geoiplocation.svg'],
     ['Whois IP/Dominio', '/img/whois.svg'],
     ['Registros DNS', '/img/dns.svg'],
     ['Convertidor', '/img/converter.svg'],
     ['Noticias', '/img/news.svg'],
-    ['Webmasters', 'https://via.placeholder.com/100x100.png?text=Icon'],
+    ['Webmasters', '/img/webmasters.svg'],
 ];
 const articles = [
     'Google desplegará un cable submarino que unirá EEUU, Reino Unido y España',

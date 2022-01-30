@@ -4,7 +4,7 @@ Sitio web construido con React.
 
 ## Entorno de desarrollo
 
-[Servidor de desarrollo de elhacker.net](htttps://web.elhacker.net)
+[Servidor de desarrollo de elhacker.net](https://web.elhacker.net)
 
 ## Desarrollo
 
