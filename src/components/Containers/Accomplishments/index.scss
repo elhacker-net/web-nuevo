@@ -28,6 +28,8 @@
 
 .terminal {
     &__header {
+        @include xy-grid(horizontal, false);
+        @include flex-align(null, middle);
         font-family: monospace;
         font-size: rem-calc(20px);
     }
