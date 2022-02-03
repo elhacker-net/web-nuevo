@@ -1,3 +1,5 @@
+# Server bundles
+server/*.webpack.js
 # Logs
 logs
 *.log
