@@ -1,4 +1,5 @@
 import React from 'react';
+import { hot } from 'react-hot-loader/root';
 import Header from '@Components/Layout/Header';
 import News from '@Components/Layout/News';
 import ForumStats from '@Components/Layout/Forum';
@@ -33,4 +34,4 @@ const App = () => (
     </>
 );
 
-export default App;
+export default hot(App);
