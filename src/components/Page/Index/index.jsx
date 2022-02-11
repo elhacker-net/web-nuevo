@@ -1,5 +1,4 @@
 import React from 'react';
-import { hot } from 'react-hot-loader/root';
 import Header from '@Components/Layout/Header';
 import News from '@Components/Layout/News';
 import ForumStats from '@Components/Layout/Forum';
@@ -18,7 +17,7 @@ import {
     services,
 } from '@Util/data.js';
 
-const App = () => (
+const Index = () => (
     <>
         <Header links={links} />
         <News announcements={announcements} articles={articles} />
@@ -34,4 +33,4 @@ const App = () => (
     </>
 );
 
-export default hot(App);
+export default Index;
