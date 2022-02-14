@@ -8,7 +8,6 @@ import RoutesConfig from './routes';
 const scriptTag = document.getElementById('initialState');
 const initialState = scriptTag ? JSON.parse(scriptTag.innerHTML) : {};
 
-console.log(scriptTag, initialState);
 const store = createStore(initialState);
 
 const App = () => (
