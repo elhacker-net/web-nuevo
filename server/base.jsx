@@ -68,8 +68,4 @@ router.get('/', (req, res) => {
         });
 });
 
-router.get('/favicon.ico', (req, res) => {
-    res.redirect('/img/favicon.png');
-});
-
 export default router;
