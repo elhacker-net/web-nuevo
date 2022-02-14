@@ -23,11 +23,13 @@
   "author": "MinusFour",
   "license": "MIT",
   "dependencies": {
+    "@reduxjs/toolkit": "^1.7.2",
     "express": "^4.17.2",
     "foundation-sites": "^6.6.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-hot-loader": "^4.12.21",
+    "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.1"
   },
   "devDependencies": {
