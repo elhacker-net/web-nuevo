@@ -15,7 +15,7 @@ export default () => {
     let dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(fetchNews('http://localhost:8080/api/news'));
+        dispatch(fetchNews('/api/news'));
     }, []);
 
     return (

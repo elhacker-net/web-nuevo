@@ -6,7 +6,7 @@ import createStore from './store';
 import RoutesConfig from './routes';
 
 const scriptTag = document.getElementById('initialState');
-const initialState = scriptTag ? JSON.parse(scriptTag.innerHTML) : {};
+const initialState = scriptTag || JSON.parse(scriptTag.innerHTML || {});
 
 const store = createStore(initialState);
 
