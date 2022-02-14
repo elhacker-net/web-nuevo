@@ -45,7 +45,7 @@ const renderToString = (url, initialState) => {
     );
 };
 
-router.get('/', (req, res, next) => {
+router.get('/', (req, res) => {
     fs.readFile(path.resolve(__dirname, '..', 'dist', 'index.html'), 'utf8')
         .then((html) => {
             let initialState = getInitialState(req.url);
@@ -55,15 +55,21 @@ router.get('/', (req, res, next) => {
             );
             let finalHTML = html
                 .replace(
-                    '<!-- SERVER HEAD INSERTION -->',
+                    '<script id="initialState" type="application/json"></script>',
                     `<script id="initialState" type="application/json">${stateStringified}</script>`,
                 ).replace(
                     '<div id="app"></div>',
                     `<div id="app">${render}</div>`,
                 );
-
             res.send(finalHTML);
-        }).catch(next);
+        }).catch((err) => {
+            console.log(err);
+            res.status(500).send('Something went wrong...');
+        });
+});
+
+router.get('/favicon.ico', (req, res) => {
+    res.redirect('/img/favicon.png');
 });
 
 export default router;
