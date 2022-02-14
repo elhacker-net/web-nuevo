@@ -1,3 +1,8 @@
+# Server bundles
+server/index.js
+# Generated assets on public folder
+public/js/*
+public/css/*
 # Logs
 logs
 *.log

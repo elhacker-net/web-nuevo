@@ -5,6 +5,12 @@
     "rules": {
         "prefer-const": "off",
         "indent": ["error", 4],
+        "import/no-extraneous-dependencies": ["error", {
+            "devDependencies": true,
+            "optionalDependencies": false,
+            "peerDependencies": false,
+            "bundledDependencies": false,
+        }],
         "space-before-blocks": "off",
         "react/jsx-indent": ["error", 4],
         "react/jsx-indent-props": ["error", 4],
@@ -20,7 +26,11 @@
     "settings" : {
         "import/resolver" : {
             "node" : {},
-            "webpack" : {}
+            "webpack" : {
+                "env": {
+                    "development": true
+                }
+            }
         }
     },
     "extends" : ["airbnb"]

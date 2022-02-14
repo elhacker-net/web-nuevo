@@ -1,9 +1,4 @@
-const path = require('path');
-const ProgressPlugin = require('webpack/lib/ProgressPlugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
-const alias = require('./webpack.alias.config');
+let { config } = require('./webpack.base');
 /*
  * SplitChunksPlugin is enabled by default and replaced
  * deprecated CommonsChunkPlugin. It automatically identifies modules which
@@ -26,101 +21,10 @@ const alias = require('./webpack.alias.config');
  *
  */
 
-module.exports = (env) => {
-    // defaults when there's no env
-    let safeEnv = env || {
-        mode: 'development',
-    };
-
-    return {
-        mode: safeEnv.mode,
-        entry: {
-            index: ['react-hot-loader/patch', './src/index.jsx'],
-        },
-
-        output: {
-            filename: '[name].[contenthash].js',
-            path: path.resolve(__dirname, 'dist'),
-        },
-
-        plugins: [new MiniCssExtractPlugin(), new ProgressPlugin(), new HtmlWebpackPlugin({
-            template: safeEnv.mode === 'production' ? 'html/template.prod.html' : 'html/template.dev.html',
-        })],
-
-        resolve: {
-            alias,
-            extensions: ['.js', '.jsx', '.css'],
-        },
-
-        externals: safeEnv.mode === 'production' ? {
-            react: 'React',
-            'react-dom': 'ReactDOM',
-        } : { },
-
-        module: {
-            rules: [
-                {
-                    test: /.s[ac]ss$/i,
-                    use: [
-                        safeEnv.mode === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
-                        'css-loader',
-                        {
-                            loader: 'sass-loader',
-                            options: {
-                                webpackImporter: false,
-                                sassOptions: {
-                                    includePaths: [
-                                        path.resolve(__dirname, 'node_modules/foundation-sites/scss'),
-                                        path.resolve(__dirname, './scss'),
-                                    ],
-                                },
-                            },
-                        },
-                    ],
-                },
-                {
-                    test: /.(js|jsx)$/,
-                    include: [path.resolve(__dirname, 'src')],
-                    loader: 'babel-loader',
-
-                    options: {
-                        plugins: ['react-hot-loader/babel', 'syntax-dynamic-import'],
-
-                        presets: [
-                            [
-                                '@babel/preset-env',
-                                {
-                                    modules: false,
-                                },
-                            ],
-                            '@babel/preset-react',
-                        ],
-                    },
-                },
-            ],
-        },
-
-        optimization: {
-            splitChunks: {
-                cacheGroups: {
-                    vendors: {
-                        priority: -10,
-                        test: /[\\/]node_modules[\\/]/,
-                    },
-                },
-
-                chunks: 'async',
-                minChunks: 1,
-                minSize: 30000,
-            },
-        },
-
-        devServer: {
-            static: {
-                directory: path.join(__dirname, 'public'),
-            },
-            hot: true,
-            open: true,
-        },
-    };
+module.exports = (env, argv) => {
+    let mode = argv.mode || 'development';
+    let development = mode === 'development';
+    let production = !development;
+    let ssr = production ? true : env && env.ssr;
+    return config(mode, ssr);
 };

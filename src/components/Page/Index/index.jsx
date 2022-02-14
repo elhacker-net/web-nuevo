@@ -17,7 +17,7 @@ import {
     services,
 } from '@Util/data.js';
 
-const App = () => (
+const Index = () => (
     <>
         <Header links={links} />
         <News announcements={announcements} articles={articles} />
@@ -33,4 +33,4 @@ const App = () => (
     </>
 );
 
-export default App;
+export default Index;

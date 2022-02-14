@@ -1,11 +1,10 @@
-import { hot } from 'react-hot-loader/root';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Index from '@Components/Page/Index';
+import Router from './router';
 
 import '../scss/index.scss';
 
 let container = document.getElementById('app');
-let Root = hot(Index);
+let method = container.hasChildNodes() ? 'hydrate' : 'render';
 
-ReactDOM.render(<Root />, container);
+ReactDOM[method](<Router />, container);
