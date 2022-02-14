@@ -67,6 +67,12 @@ let babelRules = {
     use: babelLoader,
 };
 
+let hotModuleRules = {
+    test: /\.(js|jsx)$/,
+    use: 'react-hot-loader/webpack',
+    include: /node_modules/,
+};
+
 function config(mode, ssr){
     let development = mode === 'development';
     let production = !development;
@@ -129,6 +135,7 @@ function config(mode, ssr){
             rules: [
                 sassRulesClient,
                 babelRules,
+                hotModuleRules,
             ],
         },
         devServer: {
@@ -171,9 +178,8 @@ function config(mode, ssr){
         if (development){
             clientBase.devServer.devMiddleware = {
                 index: false,
-                writeToDisk: (filePath) => filePath.endsWith('html'),
+                writeToDisk: (filePath) => filePath.endsWith('html') || filePath.endsWith('server/index.js'),
             };
-
             clientBase.devServer.proxy.context = () => true;
         }
         clientBase.plugins.push(
